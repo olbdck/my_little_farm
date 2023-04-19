@@ -24,7 +24,6 @@ def details(request, id):
 
     return HttpResponse(template.render(context, request))
     # return JsonResponse(serializers.serialize("json", [mymember]), encoder=DjangoJSONEncoder, safe=False)
-    # return HttpResponse(json.dumps({'success':True, 'error': 'You need to login First'}))
 
 
 def main(request):
