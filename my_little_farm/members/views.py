@@ -3,11 +3,11 @@ from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from django.core.serializers.json import DjangoJSONEncoder
 from django.template import loader
-from .models import Member
+from .models import Farmers, Cows
 
 # Create your views here.
-def members(request):
-    mymembers = Member.objects.all().values()
+def farmers(request):
+    mymembers = Farmers.objects.all().values()
     template = loader.get_template('all_members.html')
     context = {
         "mymembers": mymembers,
@@ -16,8 +16,7 @@ def members(request):
 
 
 def details(request, id):
-    mymember = Member.objects.get(id=id)
-    data = Member.objects.get(id=id)
+    mymember = Farmers.objects.get(id=id)
     template = loader.get_template('details.html')
     context = {
         'mymember': mymember,
@@ -26,6 +25,7 @@ def details(request, id):
     return HttpResponse(template.render(context, request))
     # return JsonResponse(serializers.serialize("json", [mymember]), encoder=DjangoJSONEncoder, safe=False)
     # return HttpResponse(json.dumps({'success':True, 'error': 'You need to login First'}))
+
 
 def main(request):
     template = loader.get_template('main.html')
