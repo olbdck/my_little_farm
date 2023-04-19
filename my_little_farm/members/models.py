@@ -14,11 +14,16 @@ class Farmer(models.Model):
         return f"{self.firstname} {self.lastname}"
 
 
+    def print_name(self):
+        pass
+
+
     def call_me(self):
         return {
             "First name:": self.firstname,
             "Last_name:": self.lastname,
-            "Cows in own:":self.cows_in_own}
+            "Cows in own:":self.cows_in_own
+            }
 
 
 
